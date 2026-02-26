@@ -14,14 +14,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex-1 text-center md:text-left"
-          >
+            className="flex-1 text-center md:text-left">
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
               <span className="gradient-text">
                 {t('你好，我是', "Hi, I'm")}
               </span>
               <br />
-              <span className="text-foreground">
+              <span className="text-foreground font-sans">
                 {t('AI & 机器人开发者', 'AI & Robotics Dev')}
               </span>
             </h1>
@@ -36,14 +36,14 @@ const HeroSection = () => {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass glass-hover rounded-full p-3 text-foreground"
-              >
+                className="glass glass-hover rounded-full p-3 text-foreground">
+
                 <Github className="w-5 h-5" />
               </a>
               <a
                 href="mailto:hello@example.com"
-                className="glass glass-hover rounded-full p-3 text-foreground"
-              >
+                className="glass glass-hover rounded-full p-3 text-foreground">
+
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -54,8 +54,8 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-shrink-0"
-          >
+            className="flex-shrink-0">
+
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full glass-strong overflow-hidden animate-float">
                 <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
@@ -69,8 +69,8 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
