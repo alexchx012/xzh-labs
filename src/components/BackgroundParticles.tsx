@@ -4,6 +4,9 @@ const BackgroundParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -19,14 +22,14 @@ const BackgroundParticles = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 25; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 3 + 1,
-        opacity: Math.random() * 0.3 + 0.1,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: Math.random() * 2.5 + 1,
+        opacity: Math.random() * 0.2 + 0.05,
       });
     }
 
@@ -40,7 +43,7 @@ const BackgroundParticles = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(270, 40%, 70%, ${p.opacity})`;
+        ctx.fillStyle = `hsla(255, 40%, 70%, ${p.opacity})`;
         ctx.fill();
       });
       animationId = requestAnimationFrame(animate);

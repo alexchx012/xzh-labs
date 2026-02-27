@@ -23,7 +23,7 @@ const SkillsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="py-24 section-tinted">
       <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
@@ -33,16 +33,16 @@ const SkillsSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6">
           {skillCategories.map((cat, i) => (
-            <ScrollFadeIn key={cat.titleEn} delay={i * 0.1}>
+            <ScrollFadeIn key={cat.titleEn} delay={i * 0.1} direction="left">
               <div className="glass glass-hover rounded-2xl p-6 h-full">
                 <h3 className="text-xl font-semibold mb-4 gradient-text">
                   {t(cat.titleCn, cat.titleEn)}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {cat.skills.map(skill => (
-                    <span key={skill} className="tag">
-                      {skill}
-                    </span>
+                  {cat.skills.map((skill, j) => (
+                    <ScrollFadeIn key={skill} delay={i * 0.1 + j * 0.04} direction="none">
+                      <span className="tag">{skill}</span>
+                    </ScrollFadeIn>
                   ))}
                 </div>
               </div>
