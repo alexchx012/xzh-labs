@@ -29,7 +29,7 @@ const ProjectsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 section-tinted">
       <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
@@ -39,7 +39,7 @@ const ProjectsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {projects.map((proj, i) => (
-            <ScrollFadeIn key={i} delay={i * 0.1}>
+            <ScrollFadeIn key={i} delay={i * 0.1} scale>
               <div className="glass glass-hover rounded-2xl p-6 h-full flex flex-col">
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   {t(proj.titleCn, proj.titleEn)}

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import ScrollFadeIn from './ScrollFadeIn';
 import PortfolioModal from './PortfolioModal';
 
@@ -67,6 +68,52 @@ const portfolioItems: PortfolioItem[] = [
   },
 ];
 
+const PortfolioCard = ({ item, index }: { item: PortfolioItem; index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const imageY = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const isReversed = index % 2 === 1;
+  const emojis = ['🤖', '🚁', '🔍', '🧠', '🌱'];
+  const { t } = useLanguage();
+
+  return (
+    <div ref={ref}>
+      <ScrollFadeIn delay={0} direction={isReversed ? 'right' : 'left'}>
+        <div
+          className={`w-full glass glass-hover rounded-2xl p-6 md:p-8 flex flex-col ${
+            isReversed ? 'md:flex-row-reverse' : 'md:flex-row'
+          } gap-6 items-center text-left transition-all cursor-pointer`}
+        >
+          <motion.div
+            style={reduced ? {} : { y: imageY }}
+            className="w-full md:w-2/5 aspect-video rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0 overflow-hidden"
+          >
+            <span className="text-4xl">{emojis[index]}</span>
+          </motion.div>
+
+          <div className="flex-1">
+            <h3 className="text-xl font-semibold text-foreground mb-2">
+              {t(item.titleCn, item.titleEn)}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-1">
+              {t(item.periodCn, item.periodEn)}
+            </p>
+            <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+              {t(item.descCn, item.descEn)}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {item.tags.map(tag => (
+                <span key={tag} className="tag text-xs">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </ScrollFadeIn>
+    </div>
+  );
+};
+
 const PortfolioSection = () => {
   const { t } = useLanguage();
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
@@ -81,44 +128,11 @@ const PortfolioSection = () => {
         </ScrollFadeIn>
 
         <div className="max-w-5xl mx-auto space-y-8">
-          {portfolioItems.map((item, i) => {
-            const isReversed = i % 2 === 1;
-            return (
-              <ScrollFadeIn key={i} delay={i * 0.1}>
-                <button
-                  onClick={() => setSelected(item)}
-                  className={`w-full glass glass-hover rounded-2xl p-6 md:p-8 flex flex-col ${
-                    isReversed ? 'md:flex-row-reverse' : 'md:flex-row'
-                  } gap-6 items-center text-left transition-all`}
-                >
-                  {/* Image placeholder */}
-                  <div className="w-full md:w-2/5 aspect-video rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-4xl">
-                      {['🤖', '🚁', '🔍', '🧠', '🌱'][i]}
-                    </span>
-                  </div>
-
-                  {/* Text content */}
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      {t(item.titleCn, item.titleEn)}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-1">
-                      {t(item.periodCn, item.periodEn)}
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                      {t(item.descCn, item.descEn)}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {item.tags.map(tag => (
-                        <span key={tag} className="tag text-xs">{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </button>
-              </ScrollFadeIn>
-            );
-          })}
+          {portfolioItems.map((item, i) => (
+            <div key={i} onClick={() => setSelected(item)}>
+              <PortfolioCard item={item} index={i} />
+            </div>
+          ))}
         </div>
       </div>
 
