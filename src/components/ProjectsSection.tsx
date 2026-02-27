@@ -29,7 +29,7 @@ const ProjectsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="py-24 section-tinted">
+    <section id="projects" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">

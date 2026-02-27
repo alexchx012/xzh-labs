@@ -23,8 +23,12 @@ const SkillsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="skills" className="py-24 section-tinted">
-      <div className="container mx-auto px-4">
+    <>
+      {/* Background transition divider */}
+      <div className="bg-transition h-32" />
+
+      <section id="skills" className="py-32 bg-white">
+        <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
             {t('技术技能', 'Skills')}
@@ -51,6 +55,7 @@ const SkillsSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

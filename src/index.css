@@ -6,51 +6,52 @@
 
 @layer base {
   :root {
-    --background: 270 20% 97%;
-    --foreground: 0 0% 10%;
+    /* Dropbox-inspired color scheme */
+    --background: 210 20% 98%;
+    --foreground: 0 0% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 0 0% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 255 45% 58%;
+    --primary: 217 100% 50%; /* Dropbox Blue #0061FF */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 20% 95%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 210 25% 97%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 260 15% 94%;
-    --muted-foreground: 0 0% 29%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 320 35% 60%;
+    --accent: 217 90% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 260 12% 90%;
-    --input: 260 12% 90%;
-    --ring: 255 45% 58%;
+    --border: 210 15% 90%;
+    --input: 210 15% 92%;
+    --ring: 217 100% 50%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 12%;
+    --sidebar-primary: 217 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 25% 97%;
+    --sidebar-accent-foreground: 0 0% 12%;
+    --sidebar-border: 210 15% 93%;
+    --sidebar-ring: 217 100% 50%;
 
-    /* Raycast-style glass tokens */
-    --glass-bg: 0 0% 100% / 0.6;
-    --glass-border: 0 0% 100% / 0.8;
-    --glass-blur: 16px;
-    --glass-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.08);
-    --glass-inner-glow: inset 0 1px 0 hsla(0, 0%, 100%, 0.6);
+    /* Dropbox-style glass tokens */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 217 100% 50% / 0.1;
+    --glass-blur: 12px;
+    --glass-shadow: 0 4px 24px hsla(217, 100%, 50%, 0.08);
+    --glass-inner-glow: inset 0 1px 0 hsla(0, 0%, 100%, 0.8);
   }
 }
 
@@ -62,40 +63,43 @@
   body {
     @apply text-foreground antialiased;
     font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
-    background: linear-gradient(
-      160deg,
-      hsl(330 25% 95%) 0%,
-      hsl(280 20% 94%) 35%,
-      hsl(255 22% 95%) 65%,
-      hsl(220 25% 95%) 100%
-    );
-    background-attachment: fixed;
+    background: hsl(0, 0%, 100%);
     min-height: 100vh;
   }
 }
 
 /* Section alternating backgrounds */
 .section-tinted {
-  background: hsla(0, 0%, 100%, 0.35);
+  background: hsl(0, 0%, 100%);
+}
+
+/* Hero section with Dropbox-style beige background */
+.hero-bg {
+  background: hsl(40, 30%, 95%);
+}
+
+/* Background transition divider */
+.bg-transition {
+  background: linear-gradient(to bottom, hsl(40, 30%, 95%) 0%, hsl(0, 0%, 100%) 100%);
 }
 
 @layer components {
   .glass {
-    background: hsla(var(--glass-bg));
+    background: hsla(210, 20%, 100%, 0.75);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid hsla(var(--glass-border));
+    border: 1px solid hsla(217, 100%, 50%, 0.08);
     box-shadow: var(--glass-shadow), var(--glass-inner-glow);
   }
 
   .glass-strong {
-    background: hsla(0, 0%, 100%, 0.72);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsla(0, 0%, 100%, 0.85);
+    background: hsla(0, 0%, 100%, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsla(217, 100%, 50%, 0.12);
     box-shadow:
-      0 8px 32px hsla(0, 0%, 0%, 0.06),
-      inset 0 1px 0 hsla(0, 0%, 100%, 0.7);
+      0 4px 24px hsla(217, 100%, 50%, 0.08),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.9);
   }
 
   .glass-hover {
@@ -103,35 +107,29 @@
   }
 
   .glass-hover:hover {
-    background: hsla(0, 0%, 100%, 0.75);
+    background: hsla(0, 0%, 100%, 0.9);
     box-shadow:
-      0 16px 48px hsla(255, 30%, 50%, 0.12),
-      inset 0 1px 0 hsla(0, 0%, 100%, 0.7);
+      0 8px 32px hsla(217, 100%, 50%, 0.16),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.9);
     transform: translateY(-3px);
   }
 
   .section-title {
     @apply text-3xl md:text-4xl font-bold bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(255, 45%, 42%), hsl(320, 35%, 50%));
+    background-image: linear-gradient(135deg, hsl(217, 100%, 45%), hsl(217, 90%, 55%));
   }
 
   .tag {
     @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
-    background: hsla(255, 45%, 58%, 0.08);
-    color: hsl(255, 45%, 45%);
-    border: 1px solid hsla(255, 45%, 58%, 0.12);
+    background: hsla(217, 100%, 50%, 0.08);
+    color: hsl(217, 100%, 40%);
+    border: 1px solid hsla(217, 100%, 50%, 0.15);
   }
 
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(255, 45%, 42%), hsl(320, 35%, 50%));
+    background-image: linear-gradient(135deg, hsl(217, 100%, 45%), hsl(217, 90%, 55%));
   }
-}
-
-/* Flowing gradient animation for background */
-@keyframes gradient-flow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 @keyframes float {

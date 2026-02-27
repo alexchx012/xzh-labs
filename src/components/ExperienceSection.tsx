@@ -30,7 +30,7 @@ const ExperienceSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
