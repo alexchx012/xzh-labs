@@ -1,76 +1,58 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import { Github, Mail } from 'lucide-react';
+import { Github, Mail, ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="min-h-screen flex items-center relative pt-20">
+    <section id="hero" className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex-1 text-center md:text-left">
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              <span className="gradient-text">
-                {t('你好，我是', "Hi, I'm")}
-              </span>
-              <br />
-              <span className="text-foreground font-sans">
-                {t('AI & 机器人开发者', 'AI & Robotics Dev')}
-              </span>
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="scroll-animate text-4xl sm:text-5xl lg:text-[64px] font-semibold leading-[1.1] text-foreground mb-6">
+              {t('构建智能化的未来', 'Building the intelligent future')}
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+            <p className="scroll-animate text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
               {t(
-                '热衷于人工智能与机器人技术，致力于构建智能化的未来。',
-                'Passionate about AI and robotics, building the intelligent future.'
+                'AI 工程师 & 机器人开发者，热衷于用技术解决真实世界的问题。',
+                'AI Engineer & Robotics Developer, passionate about solving real-world problems with technology.'
               )}
             </p>
-            <div className="flex items-center gap-4 justify-center md:justify-start">
+            <div className="scroll-animate flex items-center gap-4 justify-center lg:justify-start">
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary-hover transition-colors"
+              >
+                {t('联系我', 'Get in touch')}
+                <ArrowRight className="w-4 h-4" />
+              </a>
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass glass-hover rounded-full p-3 text-foreground">
-
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:hello@example.com"
-                className="glass glass-hover rounded-full p-3 text-foreground">
-
-                <Mail className="w-5 h-5" />
+                className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:border-primary hover:text-primary transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right - Profile Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-shrink-0">
-
-            <div className="relative">
-              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full glass-strong overflow-hidden animate-float">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <span className="text-6xl md:text-7xl">🤖</span>
-                </div>
-              </div>
-              {/* Decorative rings */}
-              <div className="absolute inset-0 rounded-full border border-primary/10 scale-[1.15] animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-0 rounded-full border border-accent/10 scale-[1.3] animate-[spin_30s_linear_infinite_reverse]" />
+          {/* Right - illustration */}
+          <div className="flex-shrink-0 lg:flex-1 flex justify-center">
+            <div className="scroll-animate w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-card flex items-center justify-center">
+              <span className="text-8xl md:text-9xl">🤖</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default HeroSection;
