@@ -25,7 +25,7 @@ const ContactSection = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">{t('邮箱', 'Email')}</p>
                   <a href="mailto:hello@example.com" className="text-foreground font-medium hover:text-primary transition-colors">
-                    hello@example.com
+                    alexsander@mail.shiep.edu.cn
                   </a>
                 </div>
               </div>
@@ -36,15 +36,15 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t('微信', 'WeChat')}</p>
-                  <p className="text-foreground font-medium">your_wechat_id</p>
+                  <p className="text-foreground font-medium">https://github.com/alexchx012</p>
                 </div>
               </div>
 
               <div className="border-t border-border pt-6">
                 <a
                   href="#"
-                  className="glass glass-hover rounded-xl px-6 py-3 flex items-center justify-center gap-2 font-medium text-foreground"
-                >
+                  className="glass glass-hover rounded-xl px-6 py-3 flex items-center justify-center gap-2 font-medium text-foreground">
+
                   <Download className="w-4 h-4" />
                   {t('下载简历 (PDF)', 'Download Resume (PDF)')}
                 </a>
@@ -60,8 +60,8 @@ const ContactSection = () => {
           </p>
         </ScrollFadeIn>
       </ScrollFadeSection>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ContactSection;
