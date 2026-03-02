@@ -25,7 +25,7 @@ const HeroSection = () => {
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
               <span className="gradient-text">
-                {t('你好，我是', "Hi, I'm")}
+                {t('你好 我是', "Hi, I'm")}
               </span>
               <br />
               <span className="text-foreground">
