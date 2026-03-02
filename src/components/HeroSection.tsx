@@ -56,11 +56,11 @@ const HeroSection = () => {
             className="flex-shrink-0"
           >
             <div className="relative">
-              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full glass-strong overflow-hidden">
-                <img src={avatarImg} alt="Profile photo" className="w-full h-full object-cover" />
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden bg-white">
+                <img src={avatarImg} alt="Profile photo" className="w-full h-full object-cover block" />
               </div>
-              <div className="absolute inset-0 rounded-full border border-primary/10 scale-[1.15] animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-0 rounded-full border border-accent/10 scale-[1.3] animate-[spin_30s_linear_infinite_reverse]" />
+              <div className="absolute inset-0 rounded-full border border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_infinite]" />
+              <div className="absolute inset-0 rounded-full border border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_1.5s_infinite]" />
             </div>
           </motion.div>
         </div>
