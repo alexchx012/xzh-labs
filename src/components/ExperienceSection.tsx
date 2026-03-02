@@ -41,7 +41,7 @@ const ExperienceSection = () => {
         <div className="max-w-3xl mx-auto">
           {experiences.map((exp, i) => (
             <ScrollFadeIn key={i} delay={i * 0.2}>
-              <div className="relative pl-8 pb-12 last:pb-0">
+              <div className="relative pl-8 pb-20 last:pb-0">
                 {i < experiences.length - 1 && (
                   <div className="absolute left-[11px] top-3 bottom-0 w-px bg-border" />
                 )}
