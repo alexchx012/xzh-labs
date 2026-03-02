@@ -2,6 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { Github, Mail } from 'lucide-react';
 import { useRef } from 'react';
+import avatarImg from '@/assets/avatar.jpg';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -55,10 +56,8 @@ const HeroSection = () => {
             className="flex-shrink-0"
           >
             <div className="relative">
-              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full glass-strong overflow-hidden animate-float">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <span className="text-6xl md:text-7xl">🤖</span>
-                </div>
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full glass-strong overflow-hidden">
+                <img src={avatarImg} alt="Profile photo" className="w-full h-full object-cover" />
               </div>
               <div className="absolute inset-0 rounded-full border border-primary/10 scale-[1.15] animate-[spin_20s_linear_infinite]" />
               <div className="absolute inset-0 rounded-full border border-accent/10 scale-[1.3] animate-[spin_30s_linear_infinite_reverse]" />
