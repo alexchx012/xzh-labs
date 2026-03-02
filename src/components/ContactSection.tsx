@@ -19,7 +19,7 @@ const ContactSection = () => {
           <ScrollFadeIn>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <div
-                className="glass rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto select-text cursor-default"
+                className="glass glass-hover rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto select-text cursor-default"
               >
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
@@ -31,7 +31,7 @@ const ContactSection = () => {
               </div>
 
               <div
-                className="glass rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto select-text cursor-default"
+                className="glass glass-hover rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto select-text cursor-default"
               >
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Github className="w-5 h-5 text-primary" />
