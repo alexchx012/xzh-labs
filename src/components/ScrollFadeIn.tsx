@@ -26,7 +26,7 @@ const ScrollFadeIn = ({ children, className = '', delay = 0, direction = 'up', s
     <motion.div
       initial={reduced ? {} : { opacity: 0, x: offset.x, y: offset.y, scale: scale ? 1.05 : 1 }}
       whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >
