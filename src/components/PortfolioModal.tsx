@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import ImageCarousel from './ImageCarousel';
 import type { PortfolioItem } from './PortfolioSection';
 
 interface Props {
@@ -26,10 +27,11 @@ const PortfolioModal = ({ item, onClose }: Props) => {
             {t(item.periodCn, item.periodEn)}
           </p>
 
-          {/* Image carousel placeholder */}
-          <div className="w-full aspect-video rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-            <span className="text-5xl">📸</span>
-          </div>
+          {/* Image carousel */}
+          <ImageCarousel
+            images={item.images.map((src) => ({ src, fit: 'contain' as const }))}
+            interval={5000}
+          />
 
           <div>
             <h4 className="font-semibold mb-2 text-foreground">
@@ -47,7 +49,7 @@ const PortfolioModal = ({ item, onClose }: Props) => {
               {t('项目描述', 'Description')}
             </h4>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              {t(item.descCn, item.descEn)}
+              {t(item.detailDescCn, item.detailDescEn)}
             </p>
           </div>
         </div>
