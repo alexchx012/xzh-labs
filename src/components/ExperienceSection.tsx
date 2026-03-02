@@ -1,12 +1,13 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeSection from './ScrollFadeSection';
 
 const ExperienceSection = () => {
   const { t } = useLanguage();
 
   return (
     <section id="experience" className="py-24">
-      <div className="container mx-auto px-4">
+      <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
             {t('实习经历', 'Experience')}
@@ -42,7 +43,7 @@ const ExperienceSection = () => {
             </div>
           </div>
         </ScrollFadeIn>
-      </div>
+      </ScrollFadeSection>
     </section>
   );
 };
