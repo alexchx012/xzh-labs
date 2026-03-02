@@ -6,25 +6,18 @@ import ProjectModal, { type ProjectItem } from './ProjectModal';
 
 const projects: ProjectItem[] = [
   {
-    titleCn: '智能问答系统',
-    titleEn: 'Intelligent QA System',
-    descCn: '基于 LLM 和 RAG 架构的企业级智能问答系统，支持多轮对话和文档检索。',
-    descEn: 'Enterprise QA system based on LLM and RAG, supporting multi-turn dialogue and document retrieval.',
-    tags: ['LangChain', 'GPT-4', 'Vector DB', 'FastAPI'],
+    titleCn: 'VNCcar - 智能车视觉循迹系统',
+    titleEn: 'VNCcar - Smart Car Vision Tracking System',
+    descCn: '基于Python和OpenCV开发的智能车视觉循迹系统，实现了赛道线检测、PID闭环控制和直角弯道处理。通过版本迭代优化算法性能，成功完成智能车循迹任务。',
+    descEn: 'Smart car vision tracking system based on Python and OpenCV, implementing lane detection, PID closed-loop control, and right-angle turn handling. Successfully completed tracking tasks through iterative optimization.',
+    tags: ['Python', 'OpenCV', 'PID Control', 'Image Processing', 'Embedded'],
   },
   {
-    titleCn: '自主移动机器人',
-    titleEn: 'Autonomous Mobile Robot',
-    descCn: '设计并实现了一款基于 ROS2 的室内自主导航机器人，集成激光雷达和深度相机。',
-    descEn: 'Designed an indoor autonomous robot with ROS2, integrating LiDAR and depth camera.',
-    tags: ['ROS2', 'LiDAR', 'Nav2', 'Python'],
-  },
-  {
-    titleCn: '实时目标检测平台',
-    titleEn: 'Real-time Object Detection',
-    descCn: '基于 YOLOv8 的实时检测系统，部署于边缘设备，支持多类别目标识别。',
-    descEn: 'Real-time detection system based on YOLOv8, deployed on edge devices for multi-class recognition.',
-    tags: ['YOLOv8', 'TensorRT', 'CUDA', 'OpenCV'],
+    titleCn: '群体智能 - PSO粒子群优化算法',
+    titleEn: 'Swarm Intelligence - PSO Algorithm',
+    descCn: '基于MATLAB实现的粒子群优化算法研究项目，包含完整的算法实现、测试框架和学术论文。算法具有良好的鲁棒性和可扩展性，可应用于工程优化和参数调优。',
+    descEn: 'PSO algorithm research project in MATLAB with complete implementation, testing framework, and academic paper. Features robust design applicable to engineering optimization and parameter tuning.',
+    tags: ['MATLAB', 'PSO', 'Optimization', 'Algorithm'],
   },
 ];
 

@@ -16,11 +16,15 @@ npm run preview      # 预览生产构建
 
 ## Tech Stack
 
-- Vite 5 + React 18 + TypeScript 5
-- shadcn/ui (Radix UI) + Tailwind CSS 3
-- Framer Motion (动画) + React Router 6 (路由)
-- TanStack Query (状态) + React Hook Form + Zod (表单)
-- Vitest + Testing Library (测试)
+- **构建工具**: Vite 5.4 + React 18.3 + TypeScript 5.8
+- **UI 框架**: shadcn/ui (Radix UI) + Tailwind CSS 3.4 + tailwindcss-animate
+- **动画**: Framer Motion 12.34
+- **路由**: React Router 6.30
+- **状态管理**: TanStack Query 5.83
+- **表单**: React Hook Form 7.61 + Zod 3.25 + @hookform/resolvers
+- **图标**: Lucide React 0.462
+- **其他**: Sonner (Toast)、Recharts (图表)、date-fns、embla-carousel
+- **测试**: Vitest 3.2 + Testing Library + jsdom
 
 ## Project Structure
 
@@ -28,13 +32,28 @@ npm run preview      # 预览生产构建
 src/
 ├── components/           # 业务组件
 │   ├── ui/              # shadcn 组件 (不要手动修改)
-│   └── *Section.tsx     # 页面区块组件
+│   ├── BackgroundParticles.tsx  # 背景粒子动画
+│   ├── ContactSection.tsx       # 联系方式区块
+│   ├── ExperienceSection.tsx    # 工作经验区块
+│   ├── HeroSection.tsx          # 首屏英雄区块
+│   ├── Navbar.tsx / NavLink.tsx # 导航栏组件
+│   ├── SideNav.tsx              # 侧边导航
+│   ├── PortfolioSection.tsx / PortfolioModal.tsx  # 作品集
+│   ├── ProjectsSection.tsx / ProjectModal.tsx     # 项目展示
+│   ├── SkillsSection.tsx        # 技能展示
+│   └── ScrollFadeIn.tsx / ScrollFadeSection.tsx   # 滚动动画
 ├── contexts/            # React Context
-│   └── LanguageContext.tsx  # 中英文切换
+│   └── LanguageContext.tsx  # 中英文切换 (cn/en)
 ├── hooks/               # 自定义 hooks
+│   ├── use-mobile.tsx   # 移动端检测
+│   └── use-toast.ts     # Toast 通知
 ├── lib/utils.ts         # 工具函数 (cn() 等)
 ├── pages/               # 路由页面
+│   ├── Index.tsx        # 首页
+│   └── NotFound.tsx     # 404 页面
 └── test/                # 测试文件
+    ├── setup.ts         # 测试环境配置
+    └── example.test.ts  # 示例测试
 ```
 
 ## Key Patterns
@@ -44,15 +63,60 @@ src/
 **双语支持**:
 
 ```tsx
-const { t } = useLanguage();
-<h1>{t('中文', 'English')}</h1>  // 默认中文
+import { useLanguage } from '@/contexts/LanguageContext';
+
+const { lang, toggle, t } = useLanguage();
+// lang: 'cn' | 'en'
+// toggle: () => void  切换语言
+// t: (cn: string, en: string) => string  翻译函数
+
+<h1>{t('中文标题', 'English Title')}</h1>  // 默认中文
+```
+
+**组件动画**:
+
+```tsx
+import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  内容
+</motion.div>
+```
+
+**滚动淡入效果**:
+
+```tsx
+import ScrollFadeIn from '@/components/ScrollFadeIn';
+
+<ScrollFadeIn>
+  <YourComponent />
+</ScrollFadeIn>
 ```
 
 **添加 shadcn 组件**: `npx shadcn@latest add <component-name>`
 
-**样式**: 使用 Tailwind 类名，颜色用 HSL 变量，自定义动画在 `tailwind.config.ts`
+**样式规范**:
+- 使用 Tailwind 类名，避免内联样式
+- 颜色使用 HSL CSS 变量 (如 `hsl(var(--primary))`)
+- 自定义动画在 `tailwind.config.ts` 中定义
+- 响应式断点：`sm:` (640px) `md:` (768px) `lg:` (1024px) `xl:` (1280px)
 
-**新路由**: 在 `App.tsx` 的 `<Routes>` 中添加，必须在 `"*"` 路由之前
+**新路由**: 在 [App.tsx](src/App.tsx) 的 `<Routes>` 中添加，必须在 `"*"` 路由之前
+
+**状态管理**:
+
+```tsx
+import { useQuery, useMutation } from '@tanstack/react-query';
+
+const { data, isLoading } = useQuery({
+  queryKey: ['key'],
+  queryFn: fetchData
+});
+```
 
 ## File Modification Rules
 

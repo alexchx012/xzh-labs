@@ -14,58 +14,53 @@ export interface PortfolioItem {
   descEn: string;
   tags: string[];
   images: string[];
+  emoji: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
   {
-    titleCn: '智慧校园导览机器人',
-    titleEn: 'Smart Campus Guide Robot',
+    titleCn: '智能机器人课程设计 - 移动机器人路径规划与智能识别',
+    titleEn: 'Intelligent Robot Course Design - Mobile Robot Path Planning & Recognition',
+    periodCn: '2024.09 - 2024.12',
+    periodEn: 'Sep - Dec 2024',
+    descCn: '基于ROS Melodic和Bulldog移动平台的完整机器人系统开发项目，实现了激光雷达SLAM建图、AMCL定位、A*+DWA路径规划与避障、多目标点自主导航，以及基于OpenCV的目标识别功能。完成实车调试，验证系统在真实环境中的性能。',
+    descEn: 'Complete robot system based on ROS Melodic and Bulldog platform, implementing LiDAR SLAM mapping, AMCL localization, A*+DWA path planning & obstacle avoidance, multi-target autonomous navigation, and OpenCV-based object recognition. Verified with real robot testing.',
+    tags: ['ROS Melodic', 'Python', 'C++', 'OpenCV', 'SLAM', 'LiDAR', 'AMCL', 'A*', 'DWA'],
+    images: [],
+    emoji: '🤖',
+  },
+  {
+    titleCn: '智能系统设计 - 音频处理系统',
+    titleEn: 'Intelligent System Design - Audio Processing System',
     periodCn: '2024.03 - 2024.06',
     periodEn: 'Mar - Jun 2024',
-    descCn: '设计并开发了一款校园导览机器人，具备语音交互、自主导航和信息查询功能，服务于新生入学导览。',
-    descEn: 'Designed a campus guide robot with voice interaction, autonomous navigation, and info queries for new students.',
-    tags: ['ROS2', 'NLP', 'SLAM', 'React'],
+    descCn: '基于MATLAB开发的音频处理系统，实现��白噪声处理、音频去噪和频谱分析功能，包含8个独立的GUI应用页面。完整的信号处理应用，展示了MATLAB开发能力和信号处理专业知识。',
+    descEn: 'Audio processing system in MATLAB with white noise processing, audio denoising, and spectrum analysis features. Includes 8 independent GUI application pages, demonstrating MATLAB development and signal processing expertise.',
+    tags: ['MATLAB', 'Signal Processing', 'Audio Processing', 'GUI Design', 'Spectrum Analysis'],
     images: [],
+    emoji: '🎵',
   },
   {
-    titleCn: '手势控制无人机',
-    titleEn: 'Gesture-Controlled Drone',
-    periodCn: '2023.09 - 2024.01',
-    periodEn: 'Sep 2023 - Jan 2024',
-    descCn: '基于 MediaPipe 手势识别的无人机控制系统，实现了直观的人机交互飞行控制方式。',
-    descEn: 'Drone control system using MediaPipe gesture recognition for intuitive human-machine flight interaction.',
-    tags: ['MediaPipe', 'Python', 'PX4', 'OpenCV'],
+    titleCn: '计算机视觉 - 车道线检测项目',
+    titleEn: 'Computer Vision - Lane Detection Project',
+    periodCn: '2024.03 - 2024.06',
+    periodEn: 'Mar - Jun 2024',
+    descCn: '基于深度学习的车道线检测项目，使用1000+张图像数据集训练模型，实现了准确的车道线识别和定位。数据驱动的计算机视觉项目，展示了深度学习和图像处理能力。',
+    descEn: 'Deep learning-based lane detection project using 1000+ image dataset for training. Achieved accurate lane recognition and localization, demonstrating deep learning and image processing capabilities.',
+    tags: ['Python', 'OpenCV', 'Deep Learning', 'Image Processing', 'Dataset'],
     images: [],
+    emoji: '🚗',
   },
   {
-    titleCn: '工业缺陷检测系统',
-    titleEn: 'Industrial Defect Detection',
-    periodCn: '2023.03 - 2023.06',
-    periodEn: 'Mar - Jun 2023',
-    descCn: '基于深度学习的工业产品表面缺陷检测系统，准确率达 98%，部署于生产线实时检测。',
-    descEn: 'Deep learning-based industrial surface defect detection system with 98% accuracy on production lines.',
-    tags: ['PyTorch', 'YOLOv5', 'Flask', 'Docker'],
+    titleCn: 'LabView - 虚拟仪器开发',
+    titleEn: 'LabVIEW - Virtual Instrument Development',
+    periodCn: '2024.03 - 2024.06',
+    periodEn: 'Mar - Jun 2024',
+    descCn: '基于LabVIEW的虚拟仪器开发项目，包含3个完整实验和计算器应用（52KB VI文件，完整的状态机设计）。展示了工业自动化和虚拟仪器开发能力，LabVIEW是工业界广泛使用的图形化编程工具。',
+    descEn: 'Virtual instrument development project in LabVIEW, including 3 complete experiments and calculator application (52KB VI file with complete state machine design). Demonstrates industrial automation and virtual instrument development capabilities.',
+    tags: ['LabVIEW', 'Graphical Programming', 'Virtual Instrument', 'State Machine'],
     images: [],
-  },
-  {
-    titleCn: '多模态情感分析平台',
-    titleEn: 'Multimodal Sentiment Analysis',
-    periodCn: '2022.09 - 2023.01',
-    periodEn: 'Sep 2022 - Jan 2023',
-    descCn: '融合文本、语音和图像信息的多模态情感分析平台，支持实时情感识别和趋势分析。',
-    descEn: 'Multimodal sentiment analysis platform combining text, audio, and image for real-time sentiment recognition.',
-    tags: ['BERT', 'Whisper', 'CLIP', 'Streamlit'],
-    images: [],
-  },
-  {
-    titleCn: '智能温室控制系统',
-    titleEn: 'Smart Greenhouse Controller',
-    periodCn: '2022.03 - 2022.06',
-    periodEn: 'Mar - Jun 2022',
-    descCn: '基于 IoT 的智能温室环境监控系统，实现温湿度自动调节和远程监控功能。',
-    descEn: 'IoT-based smart greenhouse monitoring system with auto temperature/humidity control and remote access.',
-    tags: ['Arduino', 'MQTT', 'React', 'Node.js'],
-    images: [],
+    emoji: '🔬',
   },
 ];
 
@@ -75,7 +70,6 @@ const PortfolioCard = ({ item, index }: { item: PortfolioItem; index: number }) 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const imageY = useTransform(scrollYProgress, [0, 1], [20, -20]);
   const isReversed = index % 2 === 1;
-  const emojis = ['🤖', '🚁', '🔍', '🧠', '🌱'];
   const { t } = useLanguage();
 
   return (
@@ -90,7 +84,7 @@ const PortfolioCard = ({ item, index }: { item: PortfolioItem; index: number }) 
             style={reduced ? {} : { y: imageY }}
             className="w-full md:w-2/5 aspect-video rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0 overflow-hidden"
           >
-            <span className="text-4xl">{emojis[index]}</span>
+            <span className="text-4xl">{item.emoji}</span>
           </motion.div>
 
           <div className="flex-1">
