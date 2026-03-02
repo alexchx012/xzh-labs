@@ -29,11 +29,11 @@ const projects: ProjectItem[] = [
     detailEn: 'MATLAB-based standard PSO algorithm research project implementing velocity-position update, boundary handling, and convergence tracking. Conducted comparative experiments with 30 dimensions, 50 particles, and 1000 iterations: achieved high-precision convergence (5.68e-11) on the unimodal Sphere function, validating PSO\'s information-sharing efficiency; however, the algorithm became trapped in local optima on the multimodal Rastrigin function (134.5 vs. theoretical optimum 0), exposing premature convergence caused by rapid loss of population diversity. Analyzed the impact of inertia weight ω and learning factors c1/c2 on exploration-exploitation balance, and proposed improvement directions including adaptive parameter tuning and hybrid genetic mutation operators.',
     tags: ['MATLAB', 'PSO', 'Optimization', 'Algorithm'],
     images: [
-      { src: '/images/projects/pso/图片1.png', fit: 'contain' },
-      { src: '/images/projects/pso/图片2.png', fit: 'contain' },
-      { src: '/images/projects/pso/图片3.png', fit: 'contain' },
-      { src: '/images/projects/pso/图片4.png', fit: 'contain' },
-      { src: '/images/projects/pso/图片5.png', fit: 'contain' },
+      { src: '/images/projects/pso/1.png', fit: 'contain' },
+      { src: '/images/projects/pso/2.png', fit: 'contain' },
+      { src: '/images/projects/pso/3.png', fit: 'contain' },
+      { src: '/images/projects/pso/4.png', fit: 'contain' },
+      { src: '/images/projects/pso/5.png', fit: 'contain' },
     ],
   },
 ];
