@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/harmonyos-sans@1.0.1/css/harmonyos-sans.min.css');
 
 @tailwind base;
 @tailwind components;
@@ -61,7 +61,7 @@
 
   body {
     @apply text-foreground antialiased;
-    font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
+    font-family: 'HarmonyOS Sans', 'HarmonyOS Sans SC', system-ui, sans-serif;
     background: #FFFFFF;
     min-height: 100vh;
   }
