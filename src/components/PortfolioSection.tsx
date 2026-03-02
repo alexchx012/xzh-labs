@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeSection from './ScrollFadeSection';
 import PortfolioModal from './PortfolioModal';
 
 export interface PortfolioItem {
@@ -120,7 +121,7 @@ const PortfolioSection = () => {
 
   return (
     <section id="portfolio" className="py-24">
-      <div className="container mx-auto px-4">
+      <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
             {t('作品集', 'Portfolio')}
@@ -134,7 +135,7 @@ const PortfolioSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollFadeSection>
 
       <PortfolioModal item={selected} onClose={() => setSelected(null)} />
     </section>

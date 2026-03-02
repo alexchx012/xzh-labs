@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeSection from './ScrollFadeSection';
 import { Mail, MessageCircle, Download } from 'lucide-react';
 
 const ContactSection = () => {
@@ -7,7 +8,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-24">
-      <div className="container mx-auto px-4">
+      <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
             {t('联系我', 'Contact')}
@@ -58,7 +59,7 @@ const ContactSection = () => {
             © 2024 Portfolio. {t('保留所有权利。', 'All rights reserved.')}
           </p>
         </ScrollFadeIn>
-      </div>
+      </ScrollFadeSection>
     </section>
   );
 };
