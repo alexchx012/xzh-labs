@@ -53,7 +53,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             style={reduced ? {} : { y: imageY }}
-            className="flex-shrink-0"
+            className="flex-1 flex justify-center"
           >
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden bg-white">
