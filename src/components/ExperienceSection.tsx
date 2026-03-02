@@ -1,80 +1,49 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
-
-const experiences = [
-  {
-    titleCn: 'AI 算法实习生',
-    titleEn: 'AI Algorithm Intern',
-    companyCn: '某科技公司',
-    companyEn: 'Tech Corp',
-    periodCn: '2024.06 - 2024.09',
-    periodEn: 'Jun 2024 - Sep 2024',
-    descCn: '参与大语言模型微调与部署，优化推理性能，搭建 RAG 系统。',
-    descEn: 'Fine-tuned and deployed LLMs, optimized inference performance, and built RAG systems.',
-    tags: ['LLM', 'RAG', 'Python', 'Docker'],
-  },
-  {
-    titleCn: '机器人开发实习生',
-    titleEn: 'Robotics Dev Intern',
-    companyCn: '机器人实验室',
-    companyEn: 'Robotics Lab',
-    periodCn: '2023.07 - 2023.12',
-    periodEn: 'Jul 2023 - Dec 2023',
-    descCn: '开发基于 ROS2 的自主导航系统，实现 SLAM 与路径规划功能。',
-    descEn: 'Developed autonomous navigation using ROS2, implementing SLAM and path planning.',
-    tags: ['ROS2', 'SLAM', 'C++', 'Gazebo'],
-  },
-];
+import ScrollFadeSection from './ScrollFadeSection';
 
 const ExperienceSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="experience" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-24">
+      <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
-            {t('工作经历', 'Experience')}
+            {t('实习经历', 'Experience')}
           </h2>
         </ScrollFadeIn>
 
-        <div className="max-w-3xl mx-auto">
-          {experiences.map((exp, i) => (
-            <ScrollFadeIn key={i} delay={i * 0.2}>
-              <div className="relative pl-8 pb-12 last:pb-0">
-                {i < experiences.length - 1 && (
-                  <div className="absolute left-[11px] top-3 bottom-0 w-px bg-border" />
-                )}
-                <div className="absolute left-0 top-2 w-[23px] h-[23px] rounded-full glass-strong border-2 border-primary/30 flex items-center justify-center">
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-                </div>
-
-                <div className="glass glass-hover rounded-2xl p-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {t(exp.titleCn, exp.titleEn)}
-                    </h3>
-                    <span className="text-sm text-muted-foreground">
-                      {t(exp.periodCn, exp.periodEn)}
-                    </span>
-                  </div>
-                  <p className="text-sm font-medium text-primary mb-3">
-                    {t(exp.companyCn, exp.companyEn)}
-                  </p>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {t(exp.descCn, exp.descEn)}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tags.map(tag => (
-                      <span key={tag} className="tag text-xs">{tag}</span>
-                    ))}
-                  </div>
-                </div>
+        <ScrollFadeIn delay={0.2}>
+          <div className="max-w-3xl mx-auto glass glass-hover rounded-2xl p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {t('信弘智维（北京）科技有限公司', 'Xinhong Zhiwei (Beijing) Technology Co., Ltd.')}
+                </h3>
+                <span className="text-sm text-muted-foreground">
+                  {t('产品经理助理', 'Product Manager Assistant')}
+                </span>
               </div>
-            </ScrollFadeIn>
-          ))}
-        </div>
-      </div>
+              <span className="text-sm text-muted-foreground">
+                {t('2025.07 - 2025.11', 'Jul 2025 - Nov 2025')}
+              </span>
+            </div>
+            <ul className="text-muted-foreground text-sm mb-4 space-y-2 list-decimal list-inside">
+              <li>{t('负责各类项目台账的制作、整理与维护，确保数据准确性和及时更新', 'Maintained project ledgers to ensure data accuracy and timely updates')}</li>
+              <li>{t('设计并制作系统大屏拓扑图，优化视觉呈现效果，提升用户体验', 'Designed system topology dashboards to optimize visual presentation and UX')}</li>
+              <li>{t('协助产品经理进行产品原型设计，参与需求分析和功能规划', 'Assisted product managers in prototyping, requirements analysis, and feature planning')}</li>
+              <li>{t('定期汇报工作进展，提出改进建议，推动项目高效进行', 'Reported progress regularly with improvement suggestions to drive project efficiency')}</li>
+              <li>{t('与相关部门保持良好沟通，确保项目顺利实施', 'Maintained cross-department communication to ensure smooth project execution')}</li>
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              {['Python', '墨刀', 'SaaS', 'CAD'].map(tag => (
+                <span key={tag} className="tag text-xs">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </ScrollFadeIn>
+      </ScrollFadeSection>
     </section>
   );
 };

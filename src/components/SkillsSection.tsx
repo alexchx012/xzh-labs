@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeSection from './ScrollFadeSection';
 
 const skillCategories = [
   {
@@ -23,15 +24,11 @@ const SkillsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <>
-      {/* Background transition divider */}
-      <div className="bg-transition h-32" />
-
-      <section id="skills" className="py-32 bg-white">
-        <div className="container mx-auto px-4">
+    <section id="skills" className="py-24 section-tinted">
+      <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
-            {t('技术技能', 'Skills')}
+            {t('技能技术', 'Skills')}
           </h2>
         </ScrollFadeIn>
 
@@ -53,9 +50,8 @@ const SkillsSection = () => {
             </ScrollFadeIn>
           ))}
         </div>
-      </div>
+      </ScrollFadeSection>
     </section>
-    </>
   );
 };
 

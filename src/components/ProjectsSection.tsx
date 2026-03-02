@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeSection from './ScrollFadeSection';
+import ProjectModal, { type ProjectItem } from './ProjectModal';
 
-const projects = [
+const projects: ProjectItem[] = [
   {
     titleCn: '智能问答系统',
     titleEn: 'Intelligent QA System',
@@ -27,10 +30,11 @@ const projects = [
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
+  const [selected, setSelected] = useState<ProjectItem | null>(null);
 
   return (
-    <section id="projects" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-24 section-tinted">
+      <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
             {t('项目经验', 'Projects')}
@@ -40,7 +44,10 @@ const ProjectsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {projects.map((proj, i) => (
             <ScrollFadeIn key={i} delay={i * 0.1} scale>
-              <div className="glass glass-hover rounded-2xl p-6 h-full flex flex-col">
+              <div
+                className="glass glass-hover rounded-2xl p-6 h-full flex flex-col cursor-pointer transition-all"
+                onClick={() => setSelected(proj)}
+              >
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   {t(proj.titleCn, proj.titleEn)}
                 </h3>
@@ -56,7 +63,9 @@ const ProjectsSection = () => {
             </ScrollFadeIn>
           ))}
         </div>
-      </div>
+      </ScrollFadeSection>
+
+      <ProjectModal item={selected} onClose={() => setSelected(null)} />
     </section>
   );
 };
