@@ -15,7 +15,7 @@ const HeroSection = () => {
   return (
     <section id="hero" ref={ref} className="min-h-screen flex items-center relative pt-20 bg-[#F5F1EB]">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
