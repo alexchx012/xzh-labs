@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Github, Mail } from 'lucide-react';
+
 import { useRef } from 'react';
 import avatarImg from '@/assets/avatar.jpg';
 
@@ -38,14 +38,6 @@ const HeroSection = () => {
                 'Passionate about AI and robotics, building the intelligent future.'
               )}
             </p>
-            <div className="flex items-center gap-4 justify-center md:justify-start">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="glass glass-hover rounded-full p-3 text-foreground">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="mailto:hello@example.com" className="glass glass-hover rounded-full p-3 text-foreground">
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
           </motion.div>
 
           <motion.div
