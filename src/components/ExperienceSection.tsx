@@ -34,7 +34,7 @@ const ExperienceSection = () => {
       <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
-            {t('工作经历', 'Experience')}
+            {t('实习经历', 'Experience')}
           </h2>
         </ScrollFadeIn>
 
