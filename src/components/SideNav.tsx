@@ -43,10 +43,10 @@ const SideNav = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 30 }}
-          className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:block"
+          initial={{ opacity: 0, x: 30, y: '-50%' }}
+          animate={{ opacity: 1, x: 0, y: '-50%' }}
+          exit={{ opacity: 0, x: 30, y: '-50%' }}
+          className="fixed right-4 top-1/2 z-40 hidden lg:block"
         >
           <div className="glass-strong rounded-full py-4 px-2 flex flex-col gap-3 items-center">
             {sections.map(s => (
