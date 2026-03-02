@@ -16,22 +16,27 @@ const SideNav = () => {
   const [active, setActive] = useState('');
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      const heroEl = document.getElementById('hero');
-      if (heroEl) {
-        setVisible(window.scrollY > heroEl.offsetHeight - 100);
-      }
-
-      // Find active section
-      for (const s of [...sections].reverse()) {
-        const el = document.getElementById(s.id);
-        if (el && window.scrollY >= el.offsetTop - 200) {
-          setActive(s.id);
-          break;
-        }
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          const heroEl = document.getElementById('hero');
+          if (heroEl) {
+            setVisible(window.scrollY > heroEl.offsetHeight - 100);
+          }
+          for (const s of [...sections].reverse()) {
+            const el = document.getElementById(s.id);
+            if (el && window.scrollY >= el.offsetTop - 200) {
+              setActive(s.id);
+              break;
+            }
+          }
+          ticking = false;
+        });
       }
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
