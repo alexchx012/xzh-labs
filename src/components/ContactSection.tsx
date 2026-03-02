@@ -10,7 +10,7 @@ const ContactSection = () => {
     <section id="contact" className="py-24">
       <ScrollFadeSection className="container mx-auto px-4">
         <ScrollFadeIn>
-          <h2 className="section-title text-center mb-16">
+          <h2 className="section-title text-center mb-8">
             {t('联系我', 'Contact')}
           </h2>
         </ScrollFadeIn>
@@ -18,33 +18,29 @@ const ContactSection = () => {
         <div className="max-w-md mx-auto">
           <ScrollFadeIn>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="mailto:alexsander@mail.shiep.edu.cn"
-                className="glass glass-hover rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto transition-colors group"
+              <div
+                className="glass rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto select-text cursor-default"
               >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-left">
                   <p className="text-xs text-muted-foreground">{t('邮箱', 'Email')}</p>
-                  <p className="text-sm font-medium text-foreground">alexsander@mail.shiep.edu.cn</p>
+                  <p className="text-sm font-medium text-foreground select-all">alexsander@mail.shiep.edu.cn</p>
                 </div>
-              </a>
+              </div>
 
-              <a
-                href="https://github.com/alexchx012"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass glass-hover rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto transition-colors group"
+              <div
+                className="glass rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto select-text cursor-default"
               >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Github className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-left">
                   <p className="text-xs text-muted-foreground">GitHub</p>
-                  <p className="text-sm font-medium text-foreground">alexchx012</p>
+                  <p className="text-sm font-medium text-foreground select-all">alexchx012</p>
                 </div>
-              </a>
+              </div>
             </div>
           </ScrollFadeIn>
         </div>
