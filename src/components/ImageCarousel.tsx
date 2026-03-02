@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 /** 单张图片可以是纯路径字符串，也可以是带配置的对象 */
@@ -28,6 +28,8 @@ const ImageCarousel = ({
 }: ImageCarouselProps) => {
   const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const touchStart = useRef<number | null>(null);
+  const touchDelta = useRef<number>(0);
 
   const count = images.length;
 
@@ -39,6 +41,26 @@ const ImageCarousel = ({
     setCurrent((prev) => (prev - 1 + count) % count);
   }, [count]);
 
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+    touchDelta.current = 0;
+  }, []);
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    if (touchStart.current !== null) {
+      touchDelta.current = e.touches[0].clientX - touchStart.current;
+    }
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
+    if (Math.abs(touchDelta.current) > 50) {
+      if (touchDelta.current < 0) next();
+      else prev();
+    }
+    touchStart.current = null;
+    touchDelta.current = 0;
+  }, [next, prev]);
+
   // 自动轮播
   useEffect(() => {
     if (interval <= 0 || count <= 1 || isHovered) return;
@@ -46,7 +68,6 @@ const ImageCarousel = ({
     return () => clearInterval(timer);
   }, [interval, count, next, isHovered]);
 
-  // 没有图片时显示占位
   if (count === 0) {
     return (
       <div
@@ -62,6 +83,9 @@ const ImageCarousel = ({
       className={`relative w-full aspect-video overflow-hidden ${rounded} ${className} group`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       {/* 图片层 - only render current and adjacent slides */}
       {images.map((img, i) => {
