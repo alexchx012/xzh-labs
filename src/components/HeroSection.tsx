@@ -59,8 +59,8 @@ const HeroSection = () => {
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden bg-white">
                 <img src={avatarImg} alt="Profile photo" className="w-full h-full object-cover block" />
               </div>
-              <div className="absolute inset-0 rounded-full border border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_infinite]" />
-              <div className="absolute inset-0 rounded-full border border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_1.5s_infinite]" />
+              <div className="absolute inset-0 rounded-full border-2 border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_infinite]" />
+              <div className="absolute inset-0 rounded-full border-2 border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_1.5s_infinite]" />
             </div>
           </motion.div>
         </div>
