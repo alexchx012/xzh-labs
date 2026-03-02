@@ -63,8 +63,11 @@ const ImageCarousel = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 图片层 */}
+      {/* 图片层 - only render current and adjacent slides */}
       {images.map((img, i) => {
+        // Only render slides within 1 position of current
+        const distance = Math.min(Math.abs(i - current), count - Math.abs(i - current));
+        if (distance > 1) return null;
         const src = getSrc(img);
         const fit = getFit(img);
         return (

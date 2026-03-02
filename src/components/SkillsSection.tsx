@@ -40,10 +40,8 @@ const SkillsSection = () => {
                   {t(cat.titleCn, cat.titleEn)}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill, j) => (
-                    <ScrollFadeIn key={skill} delay={i * 0.1 + j * 0.04} direction="none">
-                      <span className="tag">{skill}</span>
-                    </ScrollFadeIn>
+                  {cat.skills.map((skill) => (
+                    <span key={skill} className="tag">{skill}</span>
                   ))}
                 </div>
               </div>
