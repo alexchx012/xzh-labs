@@ -27,7 +27,7 @@ const SkillsSection = () => {
       <div className="container mx-auto px-4">
         <ScrollFadeIn>
           <h2 className="section-title text-center mb-16">
-            {t('技术技能', 'Skills')}
+            {t('技能技术', 'Skills')}
           </h2>
         </ScrollFadeIn>
 
