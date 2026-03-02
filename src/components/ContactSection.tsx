@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
 import ScrollFadeSection from './ScrollFadeSection';
-import { Mail, MessageCircle, Download } from 'lucide-react';
+import { Mail, Github, Download } from 'lucide-react';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -32,7 +32,7 @@ const ContactSection = () => {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-5 h-5 text-primary" />
+                  <Github className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t('微信', 'WeChat')}</p>
