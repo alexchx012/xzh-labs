@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollFadeIn from './ScrollFadeIn';
 import ScrollFadeSection from './ScrollFadeSection';
-import { Mail, Github, Download } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -15,53 +15,48 @@ const ContactSection = () => {
           </h2>
         </ScrollFadeIn>
 
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-md mx-auto">
           <ScrollFadeIn>
-            <div className="glass rounded-2xl p-8 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="mailto:alexsander@mail.shiep.edu.cn"
+                className="glass glass-hover rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">{t('邮箱', 'Email')}</p>
-                  <a href="mailto:hello@example.com" className="text-foreground font-medium hover:text-primary transition-colors">
-                    alexsander@mail.shiep.edu.cn
-                  </a>
+                <div className="text-left">
+                  <p className="text-xs text-muted-foreground">{t('邮箱', 'Email')}</p>
+                  <p className="text-sm font-medium text-foreground">alexsander@mail.shiep.edu.cn</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <a
+                href="https://github.com/alexchx012"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass glass-hover rounded-2xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                   <Github className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">{t('微信', 'WeChat')}</p>
-                  <p className="text-foreground font-medium">https://github.com/alexchx012</p>
+                <div className="text-left">
+                  <p className="text-xs text-muted-foreground">GitHub</p>
+                  <p className="text-sm font-medium text-foreground">alexchx012</p>
                 </div>
-              </div>
-
-              <div className="border-t border-border pt-6">
-                <a
-                  href="#"
-                  className="glass glass-hover rounded-xl px-6 py-3 flex items-center justify-center gap-2 font-medium text-foreground">
-
-                  <Download className="w-4 h-4" />
-                  {t('下载简历 (PDF)', 'Download Resume (PDF)')}
-                </a>
-              </div>
+              </a>
             </div>
           </ScrollFadeIn>
         </div>
 
-        {/* Footer */}
         <ScrollFadeIn>
           <p className="text-center text-sm text-muted-foreground mt-16">
             © 2024 Portfolio. {t('保留所有权利。', 'All rights reserved.')}
           </p>
         </ScrollFadeIn>
       </ScrollFadeSection>
-    </section>);
-
+    </section>
+  );
 };
 
 export default ContactSection;
