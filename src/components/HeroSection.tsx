@@ -23,15 +23,14 @@ const HeroSection = () => {
             style={reduced ? {} : { y: textY }}
             className="flex-1 text-center md:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              <span className="gradient-text">
+            <div className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+              <p className="gradient-text">
                 {t('你好 我是', "Hi, I'm")}
-              </span>
-              <br />
-              <span className="text-foreground">
+              </p>
+              <p className="text-foreground">
                 {t('AI & 机器人开发者', 'AI & Robotics Dev')}
-              </span>
-            </h1>
+              </p>
+            </div>
             <p className="text-lg text-muted-foreground mb-8 max-w-lg">
               {t(
                 '热衷于人工智能与机器人技术，致力于构建智能化的未来。',
