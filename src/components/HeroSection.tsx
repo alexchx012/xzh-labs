@@ -25,7 +25,7 @@ const HeroSection = () => {
           >
             <div className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
               <p className="gradient-text">
-                {t('你好 我是', "Hi, I'm")}
+                {t('你好 我是解哲昊', "Hi, I'm Zhehao Xie")}
               </p>
               <p className="text-foreground">
                 {t('AI & 机器人开发者', 'AI & Robotics Dev')}
