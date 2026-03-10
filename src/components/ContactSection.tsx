@@ -47,7 +47,7 @@ const ContactSection = () => {
 
         <ScrollFadeIn>
           <p className="text-center text-sm text-muted-foreground mt-16">
-            © 2026 Xzh-labs. {t('保留所有权利。', 'All rights reserved.')}
+            © 2026 Xzh-labs. {t('保留所有权利。', 'All rights reserved.')} 沪ICP备2026007522号-1
           </p>
         </ScrollFadeIn>
       </ScrollFadeSection>
