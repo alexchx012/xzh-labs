@@ -102,8 +102,26 @@ import ScrollFadeIn from '@/components/ScrollFadeIn';
 **样式规范**:
 - 使用 Tailwind 类名，避免内联样式
 - 颜色使用 HSL CSS 变量 (如 `hsl(var(--primary))`)
-- 自定义动画在 `tailwind.config.ts` 中定义
 - 响应式断点：`sm:` (640px) `md:` (768px) `lg:` (1024px) `xl:` (1280px)
+- 字体：HarmonyOS Sans，从 CDN 加载（`index.css` 顶部）
+
+**可复用 CSS 工具类** (定义于 `index.css`)：
+- `.glass` - Raycast 风格毛玻璃背景
+- `.glass-strong` - 更不透明的毛玻璃
+- `.glass-hover` - 毛玻璃卡片 hover 上浮效果
+- `.section-title` - 各 section 标准大标题
+- `.tag` - 蓝色圆角标签/徽章
+- `.gradient-text` - 主色调渐变文字
+
+**Tailwind 自定义动画**（`tailwind.config.ts`）：
+- `animate-fade-up` - 0.6s 淡入上移
+- `animate-float` - 6s 无限浮动
+- CSS keyframe `ripple` 可通过 `animate-[ripple_3s_ease-out_infinite]` 使用
+
+**Section ID 约定**：SideNav 通过 `#id` 滚动定位，新增 section 必须设置 `id` 属性：
+```tsx
+<section id="skills" ...>  // hero / skills / experience / projects / portfolio / contact
+```
 
 **新路由**: 在 [App.tsx](src/App.tsx) 的 `<Routes>` 中添加，必须在 `"*"` 路由之前
 
@@ -152,11 +170,16 @@ const { data, isLoading } = useQuery({
 **规则 4 - 区分事实和猜测**:
 
 - 标注：[事实] [推断+证据] [假设] [不知道]
-- 如果输出中没有"不知道"，回去重新评估
 
 **规则 5 - 追溯根本原因**:
 
 - 被纠正时回答：哪个假设错了？还有哪些结论受影响？下次如何拦截？
+
+**规则 6 - 构建通过即部署**:
+
+- 每次代码修改后运行 `npm run build`，构建无报错则立即部署到生产环境
+- 部署步骤：`cp -r dist/* /www/wwwroot/xiezhehao.me/` → `nginx -s reload`
+- 部署完成后告知用户网页已同步更新
 
 ## TDD Red-Green-Refactor
 
@@ -176,7 +199,8 @@ const { data, isLoading } = useQuery({
 
 | 任务类型          | Skill                     |
 | ----------------- | ------------------------- |
-| PDF 操作          | `pdf`                   |
+| PDF 操作(操作更全)| `pdf`                   |
+| PDF 操作(创建更美)| `minimax-pdf`           |
 | Word 文档         | `docx`                  |
 | Excel 表格        | `xlsx`                  |
 | PPT 演示          | `pptx`                  |
