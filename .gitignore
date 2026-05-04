@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code 本地配置（不应入库）
+.claude/settings.local.json
+
+# 个人/无关文件
+build_resume.py
+论文初稿.docx
+简历项目筛选结果.md
+
