@@ -146,6 +146,21 @@
   75% { transform: translate(15px, -20px) scale(1.05); opacity: 0.35; }
 }
 
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.skills-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+}
+
+.skills-marquee-track {
+  animation: scroll-x 60s linear infinite;
+  width: max-content;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
