@@ -6,6 +6,7 @@ type SkillItem = {
   src: string;
   name: string;
   nameEn?: string;
+  scale?: number;
 };
 
 const skills: SkillItem[] = [
@@ -28,16 +29,16 @@ const skills: SkillItem[] = [
 
   { src: '/icons/LLM.jpg', name: 'LLM' },
   { src: '/icons/NLP.png', name: 'NLP' },
-  { src: '/icons/RAG.png', name: 'RAG' },
+  { src: '/icons/RAG.png', name: 'RAG', scale: 1.2 },
 
   { src: '/icons/500px-Claude-ai-icon.svg.png', name: 'Claude' },
 
   { src: '/icons/cursor.jpg', name: 'Cursor' },
-  { src: '/icons/codex-color.png', name: 'Codex' },
+  { src: '/icons/codex-color.png', name: 'Codex', scale: 1.15 },
   { src: '/icons/antigravity.jpg', name: 'Antigravity' },
   { src: '/icons/qoder.png', name: 'Qoder' },
   { src: '/icons/Traelogo.png', name: 'Trae' },
-  { src: '/icons/open-code.webp', name: 'OpenCode' },
+  { src: '/icons/open-code.webp', name: 'OpenCode', scale: 1.1 },
   { src: '/icons/lovable.png', name: 'Lovable' },
 
   { src: '/icons/coze.png', name: 'Coze' },
@@ -50,7 +51,7 @@ const skills: SkillItem[] = [
   { src: '/icons/vscode.png', name: 'VS Code' },
   { src: '/icons/docker.png', name: 'Docker' },
   { src: '/icons/github.svg', name: 'GitHub' },
-  { src: '/icons/linux_logo_icon_181333.webp', name: 'Linux' },
+  { src: '/icons/linux_logo_icon_181333.webp', name: 'Linux', scale: 1.2 },
 ];
 
 const SkillCard = ({ item, t }: { item: SkillItem; t: (cn: string, en: string) => string }) => (
@@ -61,6 +62,7 @@ const SkillCard = ({ item, t }: { item: SkillItem; t: (cn: string, en: string) =
         alt={item.name}
         loading="lazy"
         className="w-full h-full object-contain"
+        style={item.scale ? { transform: `scale(${item.scale})` } : undefined}
       />
     </div>
     <span className="mt-2 text-[13px] text-muted-foreground truncate max-w-full text-center">
@@ -68,6 +70,12 @@ const SkillCard = ({ item, t }: { item: SkillItem; t: (cn: string, en: string) =
     </span>
   </div>
 );
+
+const ROW2_OFFSET = 16;
+const skillsRow2: SkillItem[] = [
+  ...skills.slice(ROW2_OFFSET),
+  ...skills.slice(0, ROW2_OFFSET),
+];
 
 const SkillsSection = () => {
   const { t } = useLanguage();
@@ -83,13 +91,21 @@ const SkillsSection = () => {
           </ScrollFadeIn>
         </div>
 
-        <div className="skills-marquee-mask overflow-hidden">
+        <div className="skills-marquee-mask overflow-hidden space-y-6">
           <div className="skills-marquee-track flex gap-8 py-2">
             {skills.map((item, i) => (
-              <SkillCard key={`a-${i}-${item.name}`} item={item} t={t} />
+              <SkillCard key={`r1a-${i}-${item.name}`} item={item} t={t} />
             ))}
             {skills.map((item, i) => (
-              <SkillCard key={`b-${i}-${item.name}`} item={item} t={t} />
+              <SkillCard key={`r1b-${i}-${item.name}`} item={item} t={t} />
+            ))}
+          </div>
+          <div className="skills-marquee-track-reverse flex gap-8 py-2">
+            {skillsRow2.map((item, i) => (
+              <SkillCard key={`r2a-${i}-${item.name}`} item={item} t={t} />
+            ))}
+            {skillsRow2.map((item, i) => (
+              <SkillCard key={`r2b-${i}-${item.name}`} item={item} t={t} />
             ))}
           </div>
         </div>

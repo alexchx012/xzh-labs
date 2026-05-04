@@ -152,12 +152,17 @@
 }
 
 .skills-marquee-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 15%, black 85%, transparent 100%);
 }
 
 .skills-marquee-track {
-  animation: scroll-x 60s linear infinite;
+  animation: scroll-x 75s linear infinite;
+  width: max-content;
+}
+
+.skills-marquee-track-reverse {
+  animation: scroll-x 75s linear infinite reverse;
   width: max-content;
 }
 
