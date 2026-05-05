@@ -2,7 +2,15 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 /** 单张图片可以是纯路径字符串，也可以是带配置的对象 */
-export type CarouselImage = string | { src: string; fit?: 'cover' | 'contain' };
+export type CarouselImage =
+  | string
+  | {
+      src: string;
+      /** Modal 轮播内的填充模式，默认 cover */
+      fit?: 'cover' | 'contain';
+      /** 项目卡片封面的填充模式；缺省时回退到 fit */
+      coverFit?: 'cover' | 'contain';
+    };
 
 /** 统一取 src */
 const getSrc = (img: CarouselImage) => (typeof img === 'string' ? img : img.src);

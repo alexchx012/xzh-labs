@@ -21,19 +21,17 @@ const projects: ProjectItem[] = [
     ],
   },
   {
-    titleCn: '群体智能 - PSO粒子群优化算法',
-    titleEn: 'Swarm Intelligence - PSO Algorithm',
-    summaryCn: '基于MATLAB实现的标准PSO算法研究，在Sphere和Rastrigin基准函数上验证了算法的收敛性能与早熟收敛缺陷。',
-    summaryEn: 'MATLAB-based standard PSO algorithm research, validating convergence performance and premature convergence defects on Sphere and Rastrigin benchmarks.',
-    detailCn: '基于MATLAB实现的标准PSO算法研究项目，完成了速度-位置更新、边界处理、收敛追踪等核心模块。在30维、50粒子、1000次迭代的配置下进行了对比实验：单峰Sphere函数上收敛精度达到5.68e-11，验证了PSO信息共享机制的高效性；但在多峰Rastrigin函数上陷入局部最优（134.5 vs 理论最优0），暴露了标准PSO因种群多样性快速丧失而导致的早熟收敛问题。通过理论分析探讨了惯性权重ω和学习因子c1/c2对探索-开发平衡的影响，并提出了自适应参数调整和混合遗传变异算子等改进方向。',
-    detailEn: 'MATLAB-based standard PSO algorithm research project implementing velocity-position update, boundary handling, and convergence tracking. Conducted comparative experiments with 30 dimensions, 50 particles, and 1000 iterations: achieved high-precision convergence (5.68e-11) on the unimodal Sphere function, validating PSO\'s information-sharing efficiency; however, the algorithm became trapped in local optima on the multimodal Rastrigin function (134.5 vs. theoretical optimum 0), exposing premature convergence caused by rapid loss of population diversity. Analyzed the impact of inertia weight ω and learning factors c1/c2 on exploration-exploitation balance, and proposed improvement directions including adaptive parameter tuning and hybrid genetic mutation operators.',
-    tags: ['MATLAB', 'PSO', 'Optimization', 'Algorithm'],
+    titleCn: '智能 OnCall Agent 系统',
+    titleEn: 'Intelligent OnCall Agent System',
+    summaryCn: '基于 LangChain / LangGraph 构建的多 Agent OnCall 平台，融合 RAG 知识库、ReAct 对话与 Plan-Execute 智能运维，将告警响应从小时级压缩至分钟级。',
+    summaryEn: 'A multi-agent OnCall platform built on LangChain / LangGraph, integrating RAG knowledge base, ReAct conversation and Plan-Execute AIOps, reducing incident response from hours to minutes.',
+    detailCn: '智能 OnCall 系统通过 AI Agent 解决团队真实痛点，整合知识库、对话、运维三大核心能力，实现问题自动应答与故障智能排查的一体化服务，显著降低 OnCall 人力成本。\n\n我的主要职责与贡献：\n1. AI Agent 架构设计：基于 LangChain 框架设计并实现多个 Agent，包括 Chat ReAct Agent 与 Plan-Execute-Replan Agent，通过 LangGraph 图编排实现模块化工作流。\n2. RAG 知识库系统：设计完整的文档向量化存储与检索方案，针对分块大小与 TopK 进行参数调优实验，最终知识检索准确率达到 85%+。\n3. 对话功能开发：基于 ReAct 模式实现多轮上下文记忆与容错处理；通过 SSE 实现流式输出，缓解大模型响应延迟带来的卡顿。\n4. AIOps 功能开发：基于 Plan-Execute 模式构建智能运维 Agent，串联"告警→检索知识库→规划步骤→工具调用→分析结果→生成建议"的完整闭环，将运维响应时间从小时级降至分钟级。\n\n项目亮点：\n· 通过 MCP 协议集成日志查询、Prometheus 告警、MySQL 数据操作、联网检索等通用工具集，使 Agent 可灵活调用外部能力完成复杂任务。\n· 多场景无缝切换：业务咨询、告警自救、工单预处理一次开发覆盖研发 / 运维 / 业务多角色需求。\n· 自动化故障排查：根据内部文档自动查询监控与日志信息，结合历史工单生成运维建议方案。',
+    detailEn: 'The Intelligent OnCall system addresses real team pain points through AI agents, integrating knowledge base, conversation, and operations into a unified service that automates Q&A and fault diagnosis, significantly reducing OnCall labor costs.\n\nKey responsibilities:\n1. AI Agent architecture: Designed and implemented multiple agents on LangChain — Chat ReAct Agent and Plan-Execute-Replan Agent — orchestrated via LangGraph for modular workflows.\n2. RAG knowledge base: Built end-to-end document vectorization and retrieval; tuned chunk size and TopK through systematic experimentation, achieving 85%+ retrieval accuracy.\n3. Conversation features: Implemented multi-turn context memory and fault tolerance with ReAct; streamed outputs over SSE to mitigate LLM latency.\n4. AIOps features: Built a Plan-Execute agent chaining "alert → KB retrieval → plan → tool call → analysis → recommendation", cutting incident response from hours to minutes.\n\nHighlights:\n· Integrated log query, Prometheus alerts, MySQL ops, and web search as a general tool set via the MCP protocol, enabling flexible external capability invocation.\n· Single development covers consultation, self-healing alerts, and ticket preprocessing across R&D / Ops / business roles.\n· Automated diagnosis: auto-queries monitoring and logs from internal docs, combining historical tickets to generate ops recommendations.',
+    tags: ['Python', 'LangChain', 'LangGraph', 'RAG', 'Multi-Agent', 'MCP', 'ReAct'],
     images: [
-      { src: '/images/projects/pso/1.png', fit: 'contain' },
-      { src: '/images/projects/pso/2.png', fit: 'contain' },
-      { src: '/images/projects/pso/3.png', fit: 'contain' },
-      { src: '/images/projects/pso/4.png', fit: 'contain' },
-      { src: '/images/projects/pso/5.png', fit: 'contain' },
+      { src: '/images/projects/oncall/1.png', fit: 'contain', coverFit: 'cover' },
+      { src: '/images/projects/oncall/2.png', fit: 'cover' },
+      { src: '/images/projects/oncall/3.png', fit: 'cover' },
     ],
   },
 ];
@@ -62,11 +60,13 @@ const ProjectsSection = () => {
                   if (proj.images && proj.images.length > 0) {
                     const first = proj.images[0];
                     const src = typeof first === 'string' ? first : first.src;
-                    const fit = typeof first === 'string' ? 'cover' : (first.fit ?? 'cover');
+                    const fit = typeof first === 'string'
+                      ? 'cover'
+                      : (first.coverFit ?? first.fit ?? 'cover');
                     return (
-                      <div className={`aspect-video w-full shrink-0 ${fit === 'contain' ? 'bg-white' : ''}`}>
+                      <div className={`relative aspect-video w-full shrink-0 overflow-hidden ${fit === 'contain' ? 'bg-white' : ''}`}>
                         <img src={src} alt={t(proj.titleCn, proj.titleEn)}
-                          className={`w-full h-full ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                          className={`absolute inset-0 w-full h-full ${fit === 'contain' ? 'object-contain' : 'object-cover object-left-top'}`}
                           loading="lazy" draggable={false} />
                       </div>
                     );
