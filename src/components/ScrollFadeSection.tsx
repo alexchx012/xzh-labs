@@ -15,9 +15,9 @@ const ScrollFadeSection = ({ children, className = '' }: Props) => {
     offset: ['start 1', 'start 0.5'],
   });
 
-  // bottom 1/3 → 0, bottom 1/3 line to midline → 0..1
-  const rawOpacity = useTransform(scrollYProgress, [0, 0.33, 1], [0, 0, 1]);
-  const rawY = useTransform(scrollYProgress, [0, 0.33, 1], [20, 20, 0]);
+  // 终点 stop 提前到 0.85，让页面最末节也能稳定到达 opacity=1
+  const rawOpacity = useTransform(scrollYProgress, [0, 0.33, 0.85], [0, 0, 1]);
+  const rawY = useTransform(scrollYProgress, [0, 0.33, 0.85], [20, 20, 0]);
 
   const opacity = useSpring(rawOpacity, { stiffness: 100, damping: 30 });
   const y = useSpring(rawY, { stiffness: 100, damping: 30 });

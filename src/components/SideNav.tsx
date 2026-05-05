@@ -25,6 +25,18 @@ const SideNav = () => {
           if (heroEl) {
             setVisible(window.scrollY > heroEl.offsetHeight - 100);
           }
+
+          // 滚动到页面底部时，最后一节的 offsetTop 可能超过 maxScrollY，
+          // 常规判断永远命中不到 — 此处兜底强制激活末节
+          const atBottom =
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 2;
+          if (atBottom) {
+            setActive(sections[sections.length - 1].id);
+            ticking = false;
+            return;
+          }
+
           for (const s of [...sections].reverse()) {
             const el = document.getElementById(s.id);
             if (el && window.scrollY >= el.offsetTop - 200) {
