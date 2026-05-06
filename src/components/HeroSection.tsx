@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion
 import { Phone } from 'lucide-react';
 
 import { useRef } from 'react';
-import avatarImg from '@/assets/avatar.jpg';
+import avatarImg from '@/assets/avatar-new.png';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -25,17 +25,20 @@ const HeroSection = () => {
             className="flex-1 text-center md:text-left"
           >
             <div className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              <p className="gradient-text">
+              <p className="gradient-text mb-4">
                 {t('你好 我是解哲昊', "Hi, I'm Zhehao Xie")}
               </p>
               <p className="text-foreground">
-                {t('AI & 机器人开发者', 'AI & Robotics Dev')}
+                {t('AI 全栈开发& AI 产品经理', 'AI Full-Stack Development & AI Product Manager')}
               </p>
             </div>
-            <p className="text-lg text-muted-foreground mb-4 max-w-lg">
+            <p className="text-xl sm:text-2xl text-black font-medium mb-4">
+              {t('上海电力大学 · 智能科学与技术专业', 'SUEP · Intelligent Science & Technology')}
+            </p>
+            <p className="text-lg text-muted-foreground mb-4 max-w-2xl">
               {t(
-                '热衷于人工智能与机器人技术，致力于构建智能化的未来。',
-                'Passionate about AI and robotics, building the intelligent future.'
+                '热衷于追寻人工智能前沿技术与实践，致力于构建智能化的未来。',
+                'Ardent in exploring the frontiers of AI technology and practice, I dedicate myself to shaping an intelligent future.'
               )}
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
@@ -56,12 +59,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            style={reduced ? {} : { y: imageY }}
-            className="flex-1 flex justify-center"
+            style={reduced ? { x: '-10vw' } : { y: imageY, x: '-10vw' }}
+            className="flex-none flex justify-center"
           >
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden bg-white">
-                <img src={avatarImg} alt="Profile photo" className="w-full h-full object-cover block" />
+                <img src={avatarImg} alt="Profile photo" className="w-full h-full object-contain block" />
               </div>
               <div className="absolute inset-0 rounded-full border-2 border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_infinite]" />
               <div className="absolute inset-0 rounded-full border-2 border-white/60 scale-[1.15] animate-[ripple_3s_ease-out_1.5s_infinite]" />
