@@ -118,7 +118,7 @@ const AboutSection = () => {
             const Icon = card.Icon;
             return (
               <ScrollFadeIn key={card.id} delay={index * 0.1} className={card.colSpan}>
-                <div className={`glass glass-hover rounded-2xl p-6 h-full border-l-4 ${card.accentBorder}`}>
+                <div className={`glass glass-hover rounded-2xl p-6 h-full border-l-4 flex flex-col ${card.accentBorder}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-10 h-10 rounded-xl ${card.iconBg} flex items-center justify-center shrink-0`}>
                       <Icon className={`w-5 h-5 ${card.iconColor}`} />
@@ -143,7 +143,7 @@ const AboutSection = () => {
                     {t(card.descCn, card.descEn)}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {(lang === 'cn' ? card.tagsCn : card.tagsEn).map((tag) => (
                       <span
                         key={tag}
