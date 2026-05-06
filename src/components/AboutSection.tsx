@@ -86,11 +86,11 @@ const cards: CardDef[] = [
     titleCn: 'AI 工具生态',
     titleEn: 'AI Tooling Ecosystem',
     descCn:
-      '系统掌握 GPT-4o、Claude、DeepSeek、Qwen 等主流模型的能力边界与成本结构，能依据任务特性、推理预算与时延要求做出有据可查的选型决策。熟练运用 Claude Code、Codex、Cursor、Trae 等 AI 编程 CLI，在完整项目开发中覆盖架构设计、代码评审与调试迭代全流程。对 Agent 工作流工程化落地有独立认知，熟悉 LangChain / LangGraph 编排及 Coze、Dify 低代码平台，并通过 MCP 协议集成日志查询、监控告警、数据库操作等通用工具集。在 OpenClaw、AstrBot 等私有化平台上积累了丰富的模型接入、RAG 配置与 Prompt 工程经验，能将通用模型裁剪为特定场景的专属助手。',
+      '系统掌握 GPT-5.4、Claude-sonnet-4.6、DeepSeek-v4-pro/flash、Qwen3.6 等主流模型的能力边界与成本结构，能依据任务特性、推理预算与时延要求做出有据可查的选型决策。熟练运用 Claude Code、Codex、Cursor、Trae 等 AI 编程 CLI，在完整项目开发中覆盖架构设计、代码评审与调试迭代全流程。对 Agent 工作流工程化落地有独立认知，熟悉 LangChain / LangGraph 编排及 Coze、Dify 低代码平台，并通过 MCP 协议集成日志查询、监控告警、数据库操作等通用工具集。在 OpenClaw、AstrBot 等私有化平台上积累了丰富的模型接入、RAG 配置与 Prompt 工程经验，能将通用模型裁剪为特定场景的专属助手。',
     descEn:
-      'Informed model selection across GPT-4o, Claude, DeepSeek, and Qwen—evaluating capability boundaries, cost structures, and latency tradeoffs for RAG, agent, and code generation scenarios. Uses Claude Code, Codex, Cursor, and Trae daily across the full dev cycle: architecture design, code review, and debugging iteration. Has independent expertise in operationalizing agent workflows via LangChain / LangGraph and Coze / Dify low-code platforms, with MCP-based tool integration (log query, Prometheus alerts, database ops). Extensive OpenClaw and AstrBot experience covering model integration, RAG configuration, and prompt engineering to tailor general-purpose models into purpose-built assistants.',
-    tagsCn: ['Agent 工作流', 'Claude Code', 'AstrBot'],
-    tagsEn: ['Agent Workflow', 'Claude Code', 'AstrBot'],
+      'Informed model selection across GPT-5.4, Claude-sonnet-4.6, 6、DeepSeek-v4-pro, and Qwen3.6—evaluating capability boundaries, cost structures, and latency tradeoffs for RAG, agent, and code generation scenarios. Uses Claude Code, Codex, Cursor, and Trae daily across the full dev cycle: architecture design, code review, and debugging iteration. Has independent expertise in operationalizing agent workflows via LangChain / LangGraph and Coze / Dify low-code platforms, with MCP-based tool integration (log query, Prometheus alerts, database ops). Extensive OpenClaw and AstrBot experience covering model integration, RAG configuration, and prompt engineering to tailor general-purpose models into purpose-built assistants.',
+    tagsCn: ['Agent 工作流', 'Claude Code', 'AstrBot', 'OpenClaw'],
+    tagsEn: ['Agent Workflow', 'Claude Code', 'AstrBot', 'OpenClaw'],
     colSpan: 'lg:col-span-2',
   },
 ];
@@ -123,7 +123,7 @@ const AboutSection = () => {
                     <div className={`w-10 h-10 rounded-xl ${card.iconBg} flex items-center justify-center shrink-0`}>
                       <Icon className={`w-5 h-5 ${card.iconColor}`} />
                     </div>
-                    <h3 className="font-semibold text-foreground">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {t(card.titleCn, card.titleEn)}
                     </h3>
                   </div>
