@@ -2,6 +2,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import Navbar from '@/components/Navbar';
 import SideNav from '@/components/SideNav';
 import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
@@ -16,6 +17,7 @@ const Index = () => {
         <SideNav />
         <main className="relative z-10">
           <HeroSection />
+          <AboutSection />
           <SkillsSection />
           <ExperienceSection />
           <ProjectsSection />

@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const sections = [
+  { id: 'about', cn: '简介', en: 'About' },
   { id: 'skills', cn: '技能', en: 'Skills' },
   { id: 'experience', cn: '经历', en: 'Experience' },
   { id: 'projects', cn: '项目', en: 'Projects' },
