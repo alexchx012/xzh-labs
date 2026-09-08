@@ -1,5 +1,21 @@
 @import url('https://cdn.jsdelivr.net/npm/harmonyos-sans@1.0.1/css/harmonyos-sans.min.css');
 
+/* HarmonyOS Sans SC 自托管字体（原 CDN 引用已失效，改为本地加载） */
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('/fonts/HarmonyOS_Sans_SC_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -159,6 +175,11 @@
 .skills-marquee-track {
   animation: scroll-x 75s linear infinite;
   width: max-content;
+}
+/* 悬停时暂停跑马灯，方便用户查看技能卡片 */
+.skills-marquee-mask:hover .skills-marquee-track,
+.skills-marquee-mask:hover .skills-marquee-track-reverse {
+  animation-play-state: paused;
 }
 
 .skills-marquee-track-reverse {

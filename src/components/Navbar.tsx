@@ -2,14 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Menu, X } from 'lucide-react';
-
-const sections = [
-{ id: 'hero', cn: '首页', en: 'Home' },
-{ id: 'skills', cn: '技能', en: 'Skills' },
-{ id: 'experience', cn: '经历', en: 'Experience' },
-{ id: 'projects', cn: '项目', en: 'Projects' },
-{ id: 'portfolio', cn: '作品集', en: 'Portfolio' },
-{ id: 'contact', cn: '联系', en: 'Contact' }];
+import { sections } from '@/lib/sections';
 
 
 const Navbar = () => {

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion
 import ScrollFadeIn from './ScrollFadeIn';
 import ScrollFadeSection from './ScrollFadeSection';
 import PortfolioModal from './PortfolioModal';
+import { Bot, Music, Car, Calculator, type LucideIcon } from 'lucide-react';
 
 export interface PortfolioItem {
   titleCn: string;
@@ -18,7 +19,7 @@ export interface PortfolioItem {
   detailDescEn: string;
   tags: string[];
   images: string[];
-  emoji: string;
+  icon: LucideIcon;
 }
 
 const portfolioItems: PortfolioItem[] = [
@@ -33,7 +34,7 @@ const portfolioItems: PortfolioItem[] = [
     detailDescEn: 'This project developed a full robotic system on ROS Melodic with the Bulldog differential-drive platform. It covers ROS environment setup on Ubuntu 18.04, two-wheel differential kinematics modeling, LiDAR SLAM mapping with joystick control, AMCL particle-filter localization, A* global planning + DWA local obstacle avoidance for autonomous navigation, and OpenCV-based target recognition using adaptive thresholding and HSV color filtering. Custom shell scripts automate the full launch pipeline with a dedicated conda environment. Real-robot tests confirmed stable multi-target navigation with concurrent visual recognition.',
     tags: ['ROS Melodic', 'Python', 'C++', 'OpenCV', 'SLAM', 'LiDAR', 'AMCL', 'A*', 'DWA'],
     images: ['/images/portfolio/robot/1.jpg', '/images/portfolio/robot/2.jpg', '/images/portfolio/robot/3.jpg'],
-    emoji: '🤖',
+    icon: Bot,
   },
   {
     titleCn: '智能系统设计 - 语音信号处理系统',
@@ -46,7 +47,7 @@ const portfolioItems: PortfolioItem[] = [
     detailDescEn: 'This project built an integrated speech signal processing system using MATLAB App Designer. It adopts a scenario-driven design with 8 independent experiment pages covering typical signal-noise combinations: speech with white noise, low-frequency instruments with HF interference, violin with pink noise, birdsong with LF interference, keyboard/mouse click noise, powerline hum removal, and specific tone removal. Each scenario employs appropriate Butterworth LP/HP/BP/BS filters, wavelet thresholding, NLMS adaptive filtering, or spectral subtraction. The system supports the full pipeline: audio acquisition, FFT spectrum analysis, noise mixing, filtering, and playback with real-time time/frequency domain visualization.',
     tags: ['MATLAB', 'Signal Processing', 'Audio Processing', 'GUI Design', 'Butterworth Filter', 'Wavelet', 'FFT'],
     images: ['/images/portfolio/audio/1.png', '/images/portfolio/audio/2.png', '/images/portfolio/audio/3.png'],
-    emoji: '🎵',
+    icon: Music,
   },
   {
     titleCn: '计算机视觉 - 车道线检测项目',
@@ -59,7 +60,7 @@ const portfolioItems: PortfolioItem[] = [
     detailDescEn: 'This project implements automatic lane detection on static images using Python and OpenCV. The system is encapsulated in a LaneDetector class with mouse-callback-based manual ROI calibration. The core pipeline performs grayscale conversion, Gaussian blur denoising, Canny edge detection, ROI masking, and probabilistic Hough transform (HoughLinesP) for line detection. Detected lines are classified as left/right lanes by slope sign and drawn in different colors, with the ROI boundary overlaid for reference. Batch processing is supported across a 1000+ image dataset. Results show effective detection on clear, well-lit straight roads, with limitations on curves, shadows, or faded markings.',
     tags: ['Python', 'OpenCV', 'Canny', 'Hough Transform', 'ROI', 'Image Processing'],
     images: ['/images/portfolio/lane/1.png', '/images/portfolio/lane/2.png', '/images/portfolio/lane/3.png', '/images/portfolio/lane/4.png'],
-    emoji: '🚗',
+    icon: Car,
   },
   {
     titleCn: 'LabVIEW - 虚拟计算器开发',
@@ -72,7 +73,7 @@ const portfolioItems: PortfolioItem[] = [
     detailDescEn: 'This project designed a fully functional virtual calculator using LabVIEW graphical programming. The system uses 19 Boolean controls for digits 0-9, four arithmetic operators, equals, negative sign, decimal point, backspace, and clear. Event structures capture button clicks and update the display via string concatenation for multi-digit input. Decimal input is limited to one (auto-prefixing 0 when needed), and the negative sign can be toggled. Pressing an operator saves the current input as operand 1; pressing equals retrieves operand 2 and executes the operation via case structures, supporting chained mixed arithmetic. Backspace deletes characters from the end, and clear resets all variables. Division-by-zero protection is included. The clean, intuitive interface demonstrates LabVIEW\'s strengths in graphical programming and interactive virtual instrument development.',
     tags: ['LabVIEW', 'Graphical Programming', 'Virtual Instrument', 'State Machine', 'Event Structure'],
     images: ['/images/portfolio/labview/1.png', '/images/portfolio/labview/2.png', '/images/portfolio/labview/3.png', '/images/portfolio/labview/4.png'],
-    emoji: '🔬',
+    icon: Calculator,
   },
 ];
 
@@ -106,7 +107,7 @@ const PortfolioCard = ({ item, index }: { item: PortfolioItem; index: number }) 
                 loading="lazy"
               />
             ) : (
-              <span className="text-4xl">{item.emoji}</span>
+              <item.icon className="w-12 h-12 text-primary" aria-hidden="true" />
             )}
           </motion.div>
 

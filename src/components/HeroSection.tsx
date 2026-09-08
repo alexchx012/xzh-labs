@@ -4,11 +4,15 @@ import { Phone } from 'lucide-react';
 
 import { useRef } from 'react';
 import avatarImg from '@/assets/avatar-new.png';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const isMobile = useIsMobile();
+  // 桌面端两栏布局下，头像左移 10vw 做视觉微调；移动端单栏居中时归零，避免偏离中心
+  const avatarX = isMobile ? 0 : '-10vw';
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const imageY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, 40]);
@@ -29,7 +33,19 @@ const HeroSection = () => {
                 {t('你好 我是解哲昊', "Hi, I'm Zhehao Xie")}
               </p>
               <p className="text-foreground">
-                {t('AI 全栈开发& AI 产品经理', 'AI Full-Stack Development & AI Product Manager')}
+                {lang === 'cn' ? (
+                  <>
+                    <span className="whitespace-nowrap">AI 全栈开发</span>
+                    {' & '}
+                    <span className="whitespace-nowrap">AI 产品经理</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="whitespace-nowrap">AI Full-Stack Development</span>
+                    {' & '}
+                    <span className="whitespace-nowrap">AI Product Manager</span>
+                  </>
+                )}
               </p>
             </div>
             <p className="text-xl sm:text-2xl text-black font-medium mb-4">
@@ -59,7 +75,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            style={reduced ? { x: '-10vw' } : { y: imageY, x: '-10vw' }}
+            style={reduced ? { x: avatarX } : { y: imageY, x: avatarX }}
             className="flex-none flex justify-center"
           >
             <div className="relative">
